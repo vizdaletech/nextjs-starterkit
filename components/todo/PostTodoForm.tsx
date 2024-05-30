@@ -2,17 +2,25 @@
 import { postData } from "@/utils/api/postData";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
+import { CircularProgress } from "@nextui-org/progress";
 import React, { ReactElement, useState } from "react";
 
 const PostTodoForm = () => {
   const [todo, setTodo] = useState<string>("");
-console.log({todo})
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  console.log({ todo });
   const handleSubmit = async (e: any) => {
+    setIsLoading(true);
     console.log("Working");
     e.preventDefault();
-   const data = await postData("https://jsonplaceholder.typicode.com/todoss", {
+    const data = await postData("https://jsonplaceholder.typicode.com/todos", {
       title: todo,
     });
+
+    if (data) {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -28,10 +36,13 @@ console.log({todo})
         label="Todo"
         placeholder="Enter your todo"
       />
-      <Button className="w-[100px] block ml-auto" type="submit">
-        Submit
+      <Button
+        className="w-[100px] block ml-auto"
+        type="submit"
+        disabled={isLoading}
+      >
+        {isLoading ? <CircularProgress /> : <>Submit</>}
       </Button>
-
     </form>
   );
 };

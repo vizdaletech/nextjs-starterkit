@@ -3,7 +3,6 @@ import toast from "react-hot-toast";
 
 export const postData = async (url: string, formData: any) => {
   try {
-    console.log("Working");
     const res = await axios.post(url, formData);
     toast.success("Message posted successfully");
     return res.data;

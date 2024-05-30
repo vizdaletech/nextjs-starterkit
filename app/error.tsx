@@ -13,13 +13,13 @@ export default function Error({
   useEffect(() => {
     // Log the error to an error reporting service
     /* eslint-disable no-console */
-    toast.error("Oops something went wrong")
+    toast.error("Oops something went wrong");
     console.error(error);
   }, [error]);
 
   return (
     <>
-   <Toaster position="top-right"/>
-   </>
+      <Toaster position="top-right" />
+    </>
   );
 }
