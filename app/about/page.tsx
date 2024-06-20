@@ -1,12 +1,9 @@
-import { TeamList } from "@/components/about";
-import { title } from "@/components/common/primitives";
+import React from 'react'
 
-export default function AboutPage() {
+const AboutPage = () => {
   return (
-    <div>
-      <h1 className={title()}>
-        <TeamList/>
-      </h1>
-    </div>
-  );
+    <div>AboutPage</div>
+  )
 }
+
+export default AboutPage
