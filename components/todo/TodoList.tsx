@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 import { TodoProp } from "@/types/props";
 import { CircularProgress } from "@nextui-org/progress";
 
-const TodoList = async () => {
+const TodoList:any = async () => {
   const todos = await fetchData("https://jsonplaceholder.typicode.com/todos");
   console.log({todos})
   return (
